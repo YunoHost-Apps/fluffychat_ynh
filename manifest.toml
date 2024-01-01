@@ -12,7 +12,7 @@ version = "1.16.0~ynh1"
 maintainers = ["OniriCorpe"]
 
 [upstream]
-license = "WTFPL"
+license = "AGPL-3.0-only"
 website = "https://fluffychat.im/"
 demo = "https://fluffychat.im/web"
 userdoc = "https://github.com/krille-chan/fluffychat/wiki#-user-guides"
