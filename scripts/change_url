@@ -20,7 +20,7 @@ ynh_change_url_nginx_config
 # SPECIFIC MODIFICATIONS
 #=================================================
 
-ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path\">" --target_file="$install_dir/index.html"
+ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path/\">" --target_file="$install_dir/index.html"
 
 #=================================================
 # END OF SCRIPT

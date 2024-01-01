@@ -37,7 +37,7 @@ then
 	# Download, check integrity, uncompress and patch the source from manifest.toml
 	ynh_setup_source --dest_dir="$install_dir"
 
-	ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path\">" --target_file="$install_dir/index.html"
+	ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path/\">" --target_file="$install_dir/index.html"
 fi
 
 # $install_dir will automatically be initialized with some decent 
