@@ -4,8 +4,8 @@ packaging_format = 2
 
 id = "fluffychat"
 name = "Fluffychat"
-description.en = "A cute [matrix] client written in Flutter. "
-description.fr = "Un client [matrix] mignon écrit en Flutter."
+description.en = "Matrix messenger client"
+description.fr = "Client de messagerie Matrix"
 
 version = "1.16.0~ynh1"
 
@@ -20,53 +20,46 @@ code = "https://github.com/krille-chan/fluffychat"
 fund = "https://ko-fi.com/krille"
 
 [integration]
-yunohost = ">= 11.1.21"
+yunohost = ">= 11.2"
 architectures = "all"
 multi_instance = true
+
 ldap = false
+
 sso = false
+
 disk = "70M"
 ram.build = "50M"
 ram.runtime = "50M"
 
 [install]
-[install.domain]
-# this is a generic question - ask strings are automatically handled by YunoHost's core
-type = "domain"
 
-[install.path]
-# this is a generic question - ask strings are automatically handled by YunoHost's core
-type = "path"
-default = "/example"
+	[install.domain]
+	type = "domain"
 
-[install.init_main_permission]
-# this is a generic question - ask strings are automatically handled by YunoHost's core
-# This won't be saved as setting and will instead be used to initialize the SSOwat permission
-type = "group"
-default = "visitors"
+	[install.path]
+	type = "path"
+	default = "/fluffychat"
+
+	[install.init_main_permission]
+	type = "group"
+	default = "visitors"
 
 [resources]
-# See the packaging documentation for the full set
-# of explanation regarding the behavior and properties for each of those
-[resources.sources]
-[resources.sources.main]
-# This will pre-fetch the asset which can then be deployed during the install/upgrade scripts with :
-#    ynh_setup_source --dest_dir="$install_dir"
-# You can also define other assets than "main" and add --source_id="foobar" in the previous command
-url = "https://github.com/krille-chan/fluffychat/releases/download/v1.16.0/fluffychat-web.tar.gz"
-sha256 = "b7852559895d3a4dd2107f5b8f6814b5d8571a720ea2ec4e1174392fd7267bd1"
-in_subdir = 2
 
-autoupdate.asset = "fluffychat-web.tar.gz"
-autoupdate.strategy = "latest_github_release"
+	[resources.sources]
 
-[resources.install_dir]
-# This will create/remove the install dir as /var/www/$app
-# and store the corresponding setting $install_dir
-owner = "www-data:rx"
-group = "www-data:rx"
+	[resources.sources.main]
+	url = "https://github.com/krille-chan/fluffychat/releases/download/v1.16.0/fluffychat-web.tar.gz"
+	sha256 = "b7852559895d3a4dd2107f5b8f6814b5d8571a720ea2ec4e1174392fd7267bd1"
+	in_subdir = 2
 
-[resources.permissions]
-# This will configure SSOwat permission for $domain/$path/
-# The initial allowed group of user is configured via the init_main_permission question (public=visitors, private=all_users)
-main.url = "/"
+	autoupdate.asset = "fluffychat-web.tar.gz"
+	autoupdate.strategy = "latest_github_release"
+
+	[resources.install_dir]
+	owner = "www-data:rx"
+	group = "www-data:rx"
+
+	[resources.permissions]
+	main.url = "/"
