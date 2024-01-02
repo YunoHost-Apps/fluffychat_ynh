@@ -25,7 +25,7 @@ FluffyChat est un client [[matrix](https://matrix.org)] open-source, à but non 
 
 ## Captures d’écran
 
-![Capture d’écran de Fluffychat](./doc/screenshots/fluffychat.jpg)
+![Capture d’écran de Fluffychat](./doc/screenshots/screenshot.png)
 
 ## Documentations et ressources
 

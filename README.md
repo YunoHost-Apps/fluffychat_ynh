@@ -25,7 +25,7 @@ FluffyChat is an open source, nonprofit and cute [[matrix](https://matrix.org)] 
 
 ## Screenshots
 
-![Screenshot of Fluffychat](./doc/screenshots/fluffychat.jpg)
+![Screenshot of Fluffychat](./doc/screenshots/screenshot.png)
 
 ## Documentation and resources
 
