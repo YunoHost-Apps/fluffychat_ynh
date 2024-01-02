@@ -25,7 +25,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Screenshots
 
-![Screenshot of Fluffychat](./doc/screenshots/example.jpg)
+![Screenshot of Fluffychat](./doc/screenshots/fluffychat.jpg)
 
 ## Documentation and resources
 

@@ -25,7 +25,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 ## Captures d’écran
 
-![Capture d’écran de Fluffychat](./doc/screenshots/example.jpg)
+![Capture d’écran de Fluffychat](./doc/screenshots/fluffychat.jpg)
 
 ## Documentations et ressources
 
