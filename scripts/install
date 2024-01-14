@@ -21,9 +21,6 @@ ynh_setup_source --dest_dir="$install_dir"
 
 ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path/\">" --target_file="$install_dir/index.html"
 
-# $install_dir will automatically be initialized with some decent 
-# permission by default ... however, you may need to recursively reapply
-# ownership to all files such as after the ynh_setup_source step
 chown -R "www-data:www-data" "$install_dir"
 
 #=================================================
