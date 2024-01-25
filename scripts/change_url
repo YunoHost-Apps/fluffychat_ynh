@@ -20,7 +20,9 @@ ynh_change_url_nginx_config
 # SPECIFIC MODIFICATIONS
 #=================================================
 
-ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path/\">" --target_file="$install_dir/index.html"
+# remove potential trailing slash to avoid double slashes
+path_without_trailing_slash=${path%/}
+ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path_without_trailing_slash/\">" --target_file="$install_dir/index.html"
 
 #=================================================
 # END OF SCRIPT
