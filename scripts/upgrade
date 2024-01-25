@@ -9,20 +9,7 @@
 source _common.sh
 source /usr/share/yunohost/helpers
 
-### This helper will compare the version of the currently installed app and the version of the upstream package.
-### $upgrade_type can have 2 different values
-### - UPGRADE_APP if the upstream app version has changed
-### - UPGRADE_PACKAGE if only the YunoHost package has changed
-### ynh_check_app_version_changed will stop the upgrade if the app is up to date.
-### UPGRADE_APP should be used to upgrade the core app only if there's an upgrade to do.
 upgrade_type=$(ynh_check_app_version_changed)
-
-#=================================================
-# STANDARD UPGRADE STEPS
-#=================================================
-# ENSURE DOWNWARD COMPATIBILITY
-#=================================================
-#ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
 
 #=================================================
 # "REBUILD" THE APP (DEPLOY NEW SOURCES, RERUN NPM BUILD...)
@@ -37,12 +24,11 @@ then
 	# Download, check integrity, uncompress and patch the source from manifest.toml
 	ynh_setup_source --dest_dir="$install_dir"
 
-	ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path/\">" --target_file="$install_dir/index.html"
+	# remove potential trailing slash to avoid double slashes
+	path_without_trailing_slash=${path%/}
+	ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path_without_trailing_slash/\">" --target_file="$install_dir/index.html"
 fi
 
-# $install_dir will automatically be initialized with some decent 
-# permissions by default ... however, you may need to recursively reapply
-# ownership to all files such as after the ynh_setup_source step
 chown -R "www-data:www-data" "$install_dir"
 
 #=================================================

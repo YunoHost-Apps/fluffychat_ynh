@@ -16,16 +16,16 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-[FluffyChat](https://fluffychat.im) is an open source, nonprofit and cute [[matrix](https://matrix.org)] client written in [Flutter](https://flutter.dev). The goal of the app is to create an easy to use instant messenger which is open source and accessible for everyone.
+FluffyChat is an open source, nonprofit and cute [[matrix](https://matrix.org)] client written in [Flutter](https://flutter.dev). The goal of the app is to create an easy to use instant messenger which is open source and accessible for everyone.
 
 
-**Shipped version:** 1.17.1~ynh1
+**Shipped version:** 1.17.2~ynh1
 
 **Demo:** https://fluffychat.im/web
 
 ## Screenshots
 
-![Screenshot of Fluffychat](./doc/screenshots/fluffychat.jpg)
+![Screenshot of Fluffychat](./doc/screenshots/screenshot.png)
 
 ## Documentation and resources
 
