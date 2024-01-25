@@ -7,7 +7,7 @@ name = "Fluffychat"
 description.en = "Matrix messenger client"
 description.fr = "Client de messagerie Matrix"
 
-version = "1.17.1~ynh1"
+version = "1.17.2~ynh1"
 
 maintainers = [ "OniriCorpe" ]
 
