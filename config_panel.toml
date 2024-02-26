@@ -2,8 +2,6 @@ version = "1.0"
 
 [main]
 
-services = [ "__APP__" ]
-
 name.en = "Config panel"
 name.fr = "Panneau de configuration"
 
