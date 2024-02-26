@@ -16,7 +16,9 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 ## Vue d’ensemble
 
-[FluffyChat](https://fluffychat.im) est un client [[matrix](https://matrix.org)] open-source, à but non lucratif et mignon écrit en [Flutter](https://flutter.dev). Le but de cette app est de créer un client de messagerie instantannée facile d'utilisation, open-source et accessible pour tout le monde.
+FluffyChat est un client [[matrix](https://matrix.org)] open-source, à but non lucratif et mignon écrit en [Flutter](https://flutter.dev).  
+Le but de cette app est de créer un client de messagerie instantannée facile d'utilisation, open-source et accessible pour tout le monde.
+
 
 **Version incluse :** 1.18.0~ynh1
 
