@@ -47,7 +47,7 @@ ram.runtime = "50M"
 
     [install.default_matrix_server]
     ask.en = "Default Matrix server"
-    help.en = "Serveur Matrix par défaut"
+    help.en = "Must be a domain name or a sub-domain. Must not contain a path."
     type = "url"
     default = "matrix.org"
 
