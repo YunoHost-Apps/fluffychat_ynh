@@ -15,6 +15,7 @@ help = "Here you can easily configure some things about your Fluffychat instance
 
     [main.fluffychat]
     name = "Fluffychat config"
+    help = "The changes may not appear if you do not clear your browser's cache."
 
         [main.fluffychat.default_matrix_server]
         ask.en = "Default Matrix server?"
