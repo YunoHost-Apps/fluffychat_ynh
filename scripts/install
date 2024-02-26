@@ -10,6 +10,16 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
+# INITIALIZE AND STORE SETTINGS
+#=================================================
+
+# remove the 'https://' part
+default_matrix_server=${default_matrix_server#*://}
+# remove any trailing slash
+default_matrix_server=${default_matrix_server%/}
+ynh_app_setting_set --app="$app" --key=default_matrix_server --value="$default_matrix_server"
+
+#=================================================
 # APP "BUILD" (DEPLOYING SOURCES, VENV, COMPILING ETC)
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -22,6 +32,9 @@ ynh_setup_source --dest_dir="$install_dir"
 # remove potential trailing slash to avoid double slashes
 path_without_trailing_slash=${path%/}
 ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path_without_trailing_slash/\">" --target_file="$install_dir/index.html"
+
+# patching main.dart.js to replace the default matrix server
+ynh_replace_string --match_string="\$\.cmx=\"matrix.org\"" --replace_string="\$\.cmx=\"$default_matrix_server\"" --target_file="$install_dir/main.dart.js"
 
 chown -R "www-data:www-data" "$install_dir"
 

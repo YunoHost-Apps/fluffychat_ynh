@@ -11,6 +11,12 @@ source /usr/share/yunohost/helpers
 
 upgrade_type=$(ynh_check_app_version_changed)
 
+# if we update from a version prior to the config panel, create new setting
+if [ -z "${default_matrix_server:-}" ]; then
+	default_matrix_server="matrix.org"
+	ynh_app_setting_set --app="$app" --key=default_matrix_server --value="$default_matrix_server"
+fi
+
 #=================================================
 # "REBUILD" THE APP (DEPLOY NEW SOURCES, RERUN NPM BUILD...)
 #=================================================
@@ -27,6 +33,9 @@ then
 	# remove potential trailing slash to avoid double slashes
 	path_without_trailing_slash=${path%/}
 	ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path_without_trailing_slash/\">" --target_file="$install_dir/index.html"
+
+	# patching main.dart.js to replace the default matrix server
+	ynh_replace_string --match_string="\$\.cmx=\".*\"" --replace_string="\$\.cmx=\"$default_matrix_server\"" --target_file="$install_dir/main.dart.js"
 fi
 
 chown -R "www-data:www-data" "$install_dir"
