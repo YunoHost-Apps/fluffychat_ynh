@@ -1,0 +1,41 @@
+#!/bin/bash
+# In simple cases, you don't need a config script.
+
+# With a simple config_panel.toml, you can write in the app settings, in the
+# upstream config file or replace complete files (logo ...) and restart services.
+
+# The config scripts allows you to go further, to handle specific cases
+# (validation of several interdependent fields, specific getter/setter for a value,
+# display dynamic informations or choices, pre-loading of config type .cube... ).
+
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
+source /usr/share/yunohost/helpers
+
+ynh_abort_if_errors
+
+#=================================================
+# RETRIEVE ARGUMENTS
+#=================================================
+
+install_dir=$(ynh_app_setting_get --app="$app" --key=install_dir)
+default_matrix_server=$(ynh_app_setting_get --app="$app" --key=default_matrix_server)
+
+#=================================================
+# SPECIFIC SETTERS
+#=================================================
+
+set__default_matrix_server() {
+
+    # patching main.dart.js to replace the default matrix server
+    ynh_replace_string --match_string="\$\.cmx=\".*\"" --replace_string="\$\.cmx=\"$default_matrix_server\"" --target_file="$install_dir/main.dart.js"
+
+    ynh_app_setting_set --app="$app" --key=default_matrix_server --value="$default_matrix_server"
+}
+
+#=================================================
+# GENERIC FINALIZATION
+#=================================================
+ynh_app_config_run "$1"
