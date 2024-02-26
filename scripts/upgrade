@@ -27,6 +27,9 @@ then
 	# remove potential trailing slash to avoid double slashes
 	path_without_trailing_slash=${path%/}
 	ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path_without_trailing_slash/\">" --target_file="$install_dir/index.html"
+
+	# patching main.dart.js to replace the default matrix server
+	ynh_replace_string --match_string="$.cmx=\".*\"" --replace_string="$.cmx=\"$default_matrix_server\"" --target_file="$install_dir/main.dart.js"
 fi
 
 chown -R "www-data:www-data" "$install_dir"

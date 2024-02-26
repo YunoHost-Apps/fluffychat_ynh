@@ -1,0 +1,26 @@
+version = "1.0"
+
+[main]
+
+services = [ "__APP__" ]
+
+name.en = "Config panel"
+name.fr = "Panneau de configuration"
+
+help = "Here you can easily configure some things about your Fluffychat instance."
+
+####################
+#### FLUFFYCHAT CONFIG
+####################
+
+    [main.fluffychat]
+    name = "Fluffychat config"
+
+        [main.fluffychat.default_matrix_server]
+        ask.en = "Default Matrix server?"
+        ask.fr = "Serveur Matrix par défaut ?"
+        help.en = "This option changes the default Matrix server on the Fluffychat login page."
+        help.fr = "Cette option modifie le serveur Matrix renseigné par défaut sur la page de connexion de Fluffychat."
+        type = "string"
+        pattern.regexp = '^([-?a-zA-Z0-9]\.?){1,256}[a-zA-Z0-9]{1,6}$'
+        pattern.error = "Must be a domain name or a sub-domain. Must not start with 'http://' or 'https://'."

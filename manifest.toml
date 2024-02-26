@@ -45,6 +45,12 @@ ram.runtime = "50M"
     type = "group"
     default = "visitors"
 
+    [install.default_matrix_server]
+    ask.en = "Default Matrix server"
+    help.en = "Serveur Matrix par défaut"
+    type = "url"
+    default = "matrix.org"
+
 [resources]
     [resources.sources]
         [resources.sources.main]
