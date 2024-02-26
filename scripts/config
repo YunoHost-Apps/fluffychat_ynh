@@ -13,7 +13,17 @@ ynh_abort_if_errors
 #=================================================
 
 install_dir=$(ynh_app_setting_get --app="$app" --key=install_dir)
-default_matrix_server=$(ynh_app_setting_get --app="$app" --key=default_matrix_server)
+
+#=================================================
+# SPECIFIC GETTERS
+#=================================================
+
+get__default_matrix_server() {
+
+    default_matrix_server=$(ynh_app_setting_get --app="$app" --key=default_matrix_server)
+
+    echo "$default_matrix_server"
+}
 
 #=================================================
 # SPECIFIC SETTERS
