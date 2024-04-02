@@ -7,7 +7,7 @@ name = "Fluffychat"
 description.en = "Matrix messenger client"
 description.fr = "Client de messagerie Matrix"
 
-version = "1.18.0~ynh2"
+version = "1.19.0~ynh1"
 
 maintainers = [ "OniriCorpe" ]
 
@@ -47,15 +47,17 @@ ram.runtime = "50M"
 
     [install.default_matrix_server]
     ask.en = "Default Matrix server"
+    ask.fr = "Serveur Matrix par défaut"
     help.en = "Must be a domain name or a sub-domain. Must not contain a path."
+    help.fr = "Doit être un nom de domaine ou un sous-domaine. Ne doit pas contenir de chemin d'accès."
     type = "url"
     default = "https://matrix.org"
 
 [resources]
     [resources.sources]
         [resources.sources.main]
-        url = "https://github.com/krille-chan/fluffychat/releases/download/v1.18.0/fluffychat-web.tar.gz"
-        sha256 = "0b9fbc74e1098c3df966dd1b689ec16bef5aa3e83cecb7d3f408a5fab6128cf7"
+        url = "https://github.com/krille-chan/fluffychat/releases/download/v1.19.0/fluffychat-web.tar.gz"
+        sha256 = "b5083f9932f711f85d9dd778cec359cb603af375abdc20168fd4504e23b54ae9"
         in_subdir = 2
 
         autoupdate.asset = "fluffychat-web.tar.gz"
