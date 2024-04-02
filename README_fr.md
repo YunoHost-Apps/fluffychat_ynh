@@ -20,7 +20,7 @@ FluffyChat est un client [[matrix](https://matrix.org)] open-source, à but non 
 Le but de cette app est de créer un client de messagerie instantannée facile d'utilisation, open-source et accessible pour tout le monde.
 
 
-**Version incluse :** 1.18.0~ynh2
+**Version incluse :** 1.19.0~ynh1
 
 **Démo :** <https://fluffychat.im/web>
 
