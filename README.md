@@ -9,7 +9,7 @@ It shall NOT be edited by hand.
 
 [![Install Fluffychat with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=fluffychat)
 
-*[Read this README is other languages.](./ALL_README.md)*
+*[Read this README in other languages.](./ALL_README.md)*
 
 > *This package allows you to install Fluffychat quickly and simply on a YunoHost server.*  
 > *If you don't have YunoHost, please consult [the guide](https://yunohost.org/install) to learn how to install it.*
@@ -20,7 +20,7 @@ FluffyChat is an open source, nonprofit and cute [[matrix](https://matrix.org)] 
 The goal of the app is to create an easy to use instant messenger which is open source and accessible for everyone.
 
 
-**Shipped version:** 1.18.0~ynh2
+**Shipped version:** 1.19.0~ynh1
 
 **Demo:** <https://fluffychat.im/web>
 
