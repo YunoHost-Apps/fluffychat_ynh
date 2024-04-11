@@ -7,7 +7,7 @@ name = "Fluffychat"
 description.en = "Matrix messenger client"
 description.fr = "Client de messagerie Matrix"
 
-version = "1.19.0~ynh1"
+version = "1.19.1~ynh1"
 
 maintainers = [ "OniriCorpe" ]
 
@@ -56,8 +56,8 @@ ram.runtime = "50M"
 [resources]
     [resources.sources]
         [resources.sources.main]
-        url = "https://github.com/krille-chan/fluffychat/releases/download/v1.19.0/fluffychat-web.tar.gz"
-        sha256 = "b5083f9932f711f85d9dd778cec359cb603af375abdc20168fd4504e23b54ae9"
+        url = "https://github.com/krille-chan/fluffychat/releases/download/v1.19.1/fluffychat-web.tar.gz"
+        sha256 = "f952c465ebf0278d38b39b7c135b6dd125e34094c77005e3ec4b5ca4dc65783e"
         in_subdir = 2
 
         autoupdate.asset = "fluffychat-web.tar.gz"
