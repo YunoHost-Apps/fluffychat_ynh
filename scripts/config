@@ -32,7 +32,7 @@ get__default_matrix_server() {
 set__default_matrix_server() {
 
     # patching main.dart.js to replace the default matrix server
-    ynh_replace_string --match_string="\$\.cmx=\".*\"" --replace_string="\$\.cmx=\"$default_matrix_server\"" --target_file="$install_dir/main.dart.js"
+    ynh_replace_string --match_string="=\"matrix.org\"" --replace_string="=\"$default_matrix_server\"" --target_file="$install_dir/main.dart.js"
 
     ynh_app_setting_set --app="$app" --key=default_matrix_server --value="$default_matrix_server"
 }
