@@ -5,6 +5,8 @@ packaging_format = 2
 id = "fluffychat"
 name = "Fluffychat"
 description.en = "Matrix messenger client"
+description.gl = "Cliente para mensaxería Matrix"
+description.ca = "Client de missatgeria Matrix"
 description.fr = "Client de messagerie Matrix"
 
 version = "1.19.2~ynh1"
@@ -47,9 +49,14 @@ ram.runtime = "50M"
 
     [install.default_matrix_server]
     ask.en = "Default Matrix server"
+    ask.ar = "خادم ماتريكس الافتراضي"
+    ask.gl = "Servidor Matrix por defecto"
+    ask.ca = "Servidor Matrix per defecte"
     ask.fr = "Serveur Matrix par défaut"
     help.en = "Must be a domain name or a sub-domain. Must not contain a path."
-    help.fr = "Doit être un nom de domaine ou un sous-domaine. Ne doit pas contenir de chemin d'accès."
+    help.gl = "Ten que ser un dominio ou un subdominio. Non pode conter unha ruta."
+    help.ca = "Ha de ser un nom de domini o un subdomini. No pot tenir cap ruta."
+    help.fr = "Doit être un nom de domaine ou un sous-domaine. Ne peut pas contenir un chemin en fin d'URL."
     type = "url"
     default = "https://matrix.org"
 
