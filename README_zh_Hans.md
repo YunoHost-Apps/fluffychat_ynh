@@ -3,7 +3,7 @@
 请勿手动编辑。
 -->
 
-# YunoHost 的 Fluffychat
+# YunoHost 上的 Fluffychat
 
 [![集成程度](https://dash.yunohost.org/integration/fluffychat.svg)](https://dash.yunohost.org/appci/app/fluffychat) ![工作状态](https://ci-apps.yunohost.org/ci/badges/fluffychat.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/fluffychat.maintain.svg)
 
@@ -20,7 +20,7 @@ FluffyChat is an open source, nonprofit and cute [[matrix](https://matrix.org)] 
 The goal of the app is to create an easy to use instant messenger which is open source and accessible for everyone.
 
 
-**分发版本：** 1.20.0~ynh1
+**分发版本：** 1.21.0~ynh1
 
 **演示：** <https://fluffychat.im/web>
 
