@@ -5,7 +5,7 @@ Il NE doit PAS être modifié à la main.
 
 # Fluffychat pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/fluffychat.svg)](https://dash.yunohost.org/appci/app/fluffychat) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/fluffychat.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/fluffychat.maintain.svg)
+[![Niveau d’intégration](https://dash.yunohost.org/integration/fluffychat.svg)](https://ci-apps.yunohost.org/ci/apps/fluffychat/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/fluffychat.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/fluffychat.maintain.svg)
 
 [![Installer Fluffychat avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=fluffychat)
 
@@ -20,7 +20,7 @@ FluffyChat est un client [[matrix](https://matrix.org)] open-source, à but non 
 Le but de cette app est de créer un client de messagerie instantannée facile d'utilisation, open-source et accessible pour tout le monde.
 
 
-**Version incluse :** 1.21.1~ynh1
+**Version incluse :** 1.21.2~ynh1
 
 **Démo :** <https://fluffychat.im/web>
 
