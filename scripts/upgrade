@@ -1,20 +1,13 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
-upgrade_type=$(ynh_check_app_version_changed)
-
 # if we update from a version prior to the config panel, create new setting
+# FIXMEhelpers2.1: maybe replace with: ynh_app_setting_set_default --key=default_matrix_server --value="matrix.org"
 if [ -z "${default_matrix_server:-}" ]; then
 	default_matrix_server="matrix.org"
-	ynh_app_setting_set --app="$app" --key=default_matrix_server --value="$default_matrix_server"
+	ynh_app_setting_set --key=default_matrix_server --value="$default_matrix_server"
 fi
 
 #=================================================
@@ -23,32 +16,32 @@ fi
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 
-if [ "$upgrade_type" == "UPGRADE_APP" ]
+# FIXME: this is still supported but the recommendation is now to *always* re-setup the app sources wether or not the upstream sources changed
+if ynh_app_upstream_version_changed
 then
-	ynh_script_progression --message="Upgrading source files..." --weight=1
+	ynh_script_progression "Upgrading source files..."
 
 	# Download, check integrity, uncompress and patch the source from manifest.toml
-	ynh_setup_source --dest_dir="$install_dir" --full_replace=1
+	ynh_setup_source --dest_dir="$install_dir" --full_replace
 
 	# remove potential trailing slash to avoid double slashes
 	path_without_trailing_slash=${path%/}
-	ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path_without_trailing_slash/\">" --target_file="$install_dir/index.html"
+	ynh_replace --match="<base href=".*">" --replace="<base href=\"$path_without_trailing_slash/\">" --file="$install_dir/index.html"
 
 	# patching main.dart.js to replace the default matrix server
-	ynh_replace_string --match_string="=\"matrix.org\"" --replace_string="=\"$default_matrix_server\"" --target_file="$install_dir/main.dart.js"
+	ynh_replace --match="=\"matrix.org\"" --replace="=\"$default_matrix_server\"" --file="$install_dir/main.dart.js"
 fi
 
-chown -R "www-data:www-data" "$install_dir"
-
+#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R "www-data:www-data" "$install_dir"
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
-ynh_script_progression --message="Upgrading system configurations related to $app..." --weight=1
+ynh_script_progression "Upgrading system configurations related to $app..."
 
-ynh_add_nginx_config
+ynh_config_add_nginx
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Upgrade of $app completed" --last
+ynh_script_progression "Upgrade of $app completed"

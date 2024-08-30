@@ -22,7 +22,8 @@ code = "https://github.com/krille-chan/fluffychat"
 fund = "https://ko-fi.com/krille"
 
 [integration]
-yunohost = ">= 11.2"
+yunohost = ">= 11.2.18"
+helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
 
@@ -71,6 +72,7 @@ ram.runtime = "50M"
         autoupdate.strategy = "latest_github_release"
 
 [resources.install_dir]
+group = "www-data:r-x"
 owner = "www-data:rx"
 group = "www-data:rx"
 
