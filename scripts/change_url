@@ -14,7 +14,6 @@ ynh_config_change_url_nginx
 # SPECIFIC MODIFICATIONS
 #=================================================
 
-# remove potential trailing slash to avoid double slashes
 path_without_trailing_slash=${path%/}
 ynh_replace --match="<base href=".*">" --replace="<base href=\"$path_without_trailing_slash/\">" --file="$install_dir/index.html"
 
