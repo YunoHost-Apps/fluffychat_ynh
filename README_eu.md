@@ -20,7 +20,7 @@ FluffyChat is an open source, nonprofit and cute [[matrix](https://matrix.org)] 
 The goal of the app is to create an easy to use instant messenger which is open source and accessible for everyone.
 
 
-**Paketatutako bertsioa:** 1.22.0~ynh1
+**Paketatutako bertsioa:** 1.22.1~ynh1
 
 **Demoa:** <https://fluffychat.im/web>
 
