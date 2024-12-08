@@ -5,7 +5,9 @@ Ini TIDAK boleh diedit dengan tangan.
 
 # Fluffychat untuk YunoHost
 
-[![Tingkat integrasi](https://dash.yunohost.org/integration/fluffychat.svg)](https://ci-apps.yunohost.org/ci/apps/fluffychat/) ![Status kerja](https://ci-apps.yunohost.org/ci/badges/fluffychat.status.svg) ![Status pemeliharaan](https://ci-apps.yunohost.org/ci/badges/fluffychat.maintain.svg)
+[![Tingkat integrasi](https://apps.yunohost.org/badge/integration/fluffychat)](https://ci-apps.yunohost.org/ci/apps/fluffychat/)
+![Status kerja](https://apps.yunohost.org/badge/state/fluffychat)
+![Status pemeliharaan](https://apps.yunohost.org/badge/maintained/fluffychat)
 
 [![Pasang Fluffychat dengan YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=fluffychat)
 
@@ -20,7 +22,7 @@ FluffyChat is an open source, nonprofit and cute [[matrix](https://matrix.org)] 
 The goal of the app is to create an easy to use instant messenger which is open source and accessible for everyone.
 
 
-**Versi terkirim:** 1.22.1~ynh1
+**Versi terkirim:** 1.23.0~ynh1
 
 **Demo:** <https://fluffychat.im/web>
 
