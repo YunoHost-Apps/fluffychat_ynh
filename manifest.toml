@@ -9,7 +9,7 @@ description.gl = "Cliente para mensaxería Matrix"
 description.ca = "Client de missatgeria Matrix"
 description.fr = "Client de messagerie Matrix"
 
-version = "1.26.1~ynh1"
+version = "1.27.0~ynh1"
 
 maintainers = [ "OniriCorpe" ]
 
@@ -63,8 +63,8 @@ ram.runtime = "50M"
 [resources]
     [resources.sources]
         [resources.sources.main]
-        url = "https://github.com/krille-chan/fluffychat/releases/download/v1.26.1/fluffychat-web.tar.gz"
-        sha256 = "84ed4ecaad112999a513d8473d50c15872eb59454eb9c126819e9f0c7c949119"
+        url = "https://github.com/krille-chan/fluffychat/releases/download/v1.27.0/fluffychat-web.tar.gz"
+        sha256 = "fcfd3fd886a8fa4a1b4561cf40bed1fb998cce8bd34d0cc164023471b219c9a7"
         in_subdir = 2
 
         autoupdate.asset = "fluffychat-web.tar.gz"
