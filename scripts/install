@@ -1,11 +1,5 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
@@ -17,36 +11,35 @@ source /usr/share/yunohost/helpers
 default_matrix_server=${default_matrix_server#*://}
 # remove any trailing slash
 default_matrix_server=${default_matrix_server%/}
-ynh_app_setting_set --app="$app" --key=default_matrix_server --value="$default_matrix_server"
+ynh_app_setting_set --key=default_matrix_server --value="$default_matrix_server"
 
 #=================================================
 # APP "BUILD" (DEPLOYING SOURCES, VENV, COMPILING ETC)
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --weight=1
+ynh_script_progression "Setting up source files..."
 
 # Download, check integrity, uncompress and patch the source from manifest.toml
 ynh_setup_source --dest_dir="$install_dir"
 
 # remove potential trailing slash to avoid double slashes
 path_without_trailing_slash=${path%/}
-ynh_replace_string --match_string="<base href=".*">" --replace_string="<base href=\"$path_without_trailing_slash/\">" --target_file="$install_dir/index.html"
+ynh_replace --match="<base href=".*">" --replace="<base href=\"$path_without_trailing_slash/\">" --file="$install_dir/index.html"
 
 # patching main.dart.js to replace the default matrix server
-ynh_replace_string --match_string="=\"matrix.org\"" --replace_string="=\"$default_matrix_server\"" --target_file="$install_dir/main.dart.js"
+ynh_replace --match="=\"matrix.org\"" --replace="=\"$default_matrix_server\"" --file="$install_dir/main.dart.js"
 
-chown -R "www-data:www-data" "$install_dir"
-
+#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R "www-data:www-data" "$install_dir"
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding system configurations related to $app..." --weight=1
+ynh_script_progression "Adding system configurations related to $app..."
 
 # Create a dedicated NGINX config using the conf/nginx.conf template
-ynh_add_nginx_config
+ynh_config_add_nginx
 
 #=================================================
 # END OF SCRIPT
 #=================================================
-ynh_script_progression --message="Installation of $app completed" --last
+ynh_script_progression "Installation of $app completed"

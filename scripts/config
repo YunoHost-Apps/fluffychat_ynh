@@ -6,13 +6,13 @@
 
 source /usr/share/yunohost/helpers
 
-ynh_abort_if_errors
+#REMOVEME? ynh_abort_if_errors
 
 #=================================================
 # RETRIEVE ARGUMENTS
 #=================================================
 
-install_dir=$(ynh_app_setting_get --app="$app" --key=install_dir)
+install_dir=$(ynh_app_setting_get --key=install_dir)
 
 #=================================================
 # SPECIFIC GETTERS
@@ -20,7 +20,7 @@ install_dir=$(ynh_app_setting_get --app="$app" --key=install_dir)
 
 get__default_matrix_server() {
 
-    default_matrix_server=$(ynh_app_setting_get --app="$app" --key=default_matrix_server)
+    default_matrix_server=$(ynh_app_setting_get --key=default_matrix_server)
 
     echo "$default_matrix_server"
 }
@@ -34,12 +34,10 @@ set__default_matrix_server() {
     old_value=${old[default_matrix_server]}
 
     # patching main.dart.js to replace the default matrix server
-    ynh_replace_string --match_string="=\"$old_value\"" --replace_string="=\"$default_matrix_server\"" --target_file="$install_dir/main.dart.js"
+    ynh_replace --match="=\"$old_value\"" --replace="=\"$default_matrix_server\"" --file="$install_dir/main.dart.js"
 
-    ynh_app_setting_set --app="$app" --key=default_matrix_server --value="$default_matrix_server"
+    ynh_app_setting_set --key=default_matrix_server --value="$default_matrix_server"
 }
 
-#=================================================
-# GENERIC FINALIZATION
 #=================================================
 ynh_app_config_run "$1"
