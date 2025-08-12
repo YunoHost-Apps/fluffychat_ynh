@@ -9,12 +9,12 @@ source /usr/share/yunohost/helpers
 
 # remove the 'https://' part
 default_matrix_server=${default_matrix_server#*://}
+
 # remove any trailing slash
 default_matrix_server=${default_matrix_server%/}
+
 ynh_app_setting_set --key=default_matrix_server --value="$default_matrix_server"
 
-#=================================================
-# APP "BUILD" (DEPLOYING SOURCES, VENV, COMPILING ETC)
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
