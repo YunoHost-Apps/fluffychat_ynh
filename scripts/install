@@ -30,7 +30,6 @@ ynh_replace --match="<base href=".*">" --replace="<base href=\"$path_without_tra
 # patching main.dart.js to replace the default matrix server
 ynh_replace --match="=\"matrix.org\"" --replace="=\"$default_matrix_server\"" --file="$install_dir/main.dart.js"
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R "www-data:www-data" "$install_dir"
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================

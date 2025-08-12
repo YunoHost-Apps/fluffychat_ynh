@@ -4,11 +4,7 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 # if we update from a version prior to the config panel, create new setting
-# FIXMEhelpers2.1: maybe replace with: ynh_app_setting_set_default --key=default_matrix_server --value="matrix.org"
-if [ -z "${default_matrix_server:-}" ]; then
-	default_matrix_server="matrix.org"
-	ynh_app_setting_set --key=default_matrix_server --value="$default_matrix_server"
-fi
+ynh_app_setting_set_default --key=default_matrix_server --value="matrix.org"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
