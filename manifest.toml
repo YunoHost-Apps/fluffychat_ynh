@@ -22,12 +22,12 @@ code = "https://github.com/krille-chan/fluffychat"
 fund = "https://ko-fi.com/krille"
 
 [integration]
-yunohost = ">= 11.2"
+yunohost = ">= 12.0.9"
+helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
 
 ldap = false
-
 sso = false
 
 disk = "70M"
@@ -61,6 +61,7 @@ ram.runtime = "50M"
     default = "https://matrix.org"
 
 [resources]
+
     [resources.sources]
         [resources.sources.main]
         url = "https://github.com/krille-chan/fluffychat/releases/download/v2.0.0/fluffychat-web.tar.gz"
@@ -70,9 +71,10 @@ ram.runtime = "50M"
         autoupdate.asset = "fluffychat-web.tar.gz"
         autoupdate.strategy = "latest_github_release"
 
-[resources.install_dir]
-owner = "www-data:rx"
-group = "www-data:rx"
+    [resources.system_user]
 
-[resources.permissions]
-main.url = "/"
+    [resources.install_dir]
+    group = "www-data:r-x"
+
+    [resources.permissions]
+    main.url = "/"
